@@ -1,0 +1,34 @@
+%script#artwork-form{type: 'text/x-template'}
+  = bootstrap_form_for Artwork.unpublished.new, html: {'v-on:submit.prevent': 'save'} do |f|
+    .form-group{':class': '{"has-danger": errors.has("title")}'}
+      %label.col-form-label.required{:for => 'artwork_title'} Title
+      %input#artwork_title.form-control{name: 'artwork[title]', type: 'text', ':class': "{'form-control-danger': errors.has('title')}",
+                                        'v-model.trim': 'artwork.title','@input': 'validate("title",artwork.title)'}/
+      .form-control-feedback{'v-show': 'errors.has("title")'} {{ errors.first('title') }}
+
+    .form-group{':class': '{"has-danger": errors.has("year")}'}
+      %label.col-form-label.required{:for => 'artwork_year'} Year
+      %input#artwork_year.form-control{name: 'artwork[year]', type: 'number',  ':class': "{'form-control-danger': errors.has('year')}",
+                                      'v-model.number': 'artwork.year', '@input': 'validate("year",artwork.year)'}/
+      .form-control-feedback{'v-show': 'errors.has("year")'} {{ errors.first('year') }}
+
+    .form-group{':class': '{"has-danger": errors.has("artist")}'}
+      %label.col-form-label{:for => 'artwork_artist'} Artist
+      %input#artwork_artist_name.form-control{name: 'artwork[artist_name]', type: 'text',  ':class': "{'form-control-danger': errors.has('artist')}",
+                                             'v-model.number': 'artwork.artist_name', '@input': 'validate("artist",artwork.artist_name)'}/
+      .form-control-feedback{'v-show': 'errors.has("artist")'} {{ errors.first('artist') }}
+
+    .form-group
+      %label.col-form-label{:for => 'artwork_mediums'} Mediums
+      %select#artwork_mediums.form-control{:name => 'artwork[medium_list]', multiple: true}
+        %option{title: 'Select Artist'} Select Mediums
+    .row.form-group{':class': '{"has-danger": errors.has("image")}'}
+      .col-8
+        %img#artwork-image-preview{src: '/images/original/missing.png'}
+      .col
+        %input#artwork_image.form-control{type: 'file'}/
+        .form-control-feedback{'v-show': 'errors.has("image")'} {{ errors.first('image') }}
+
+    .clearfix
+      = link_to 'Back', artworks_path, class: %w(btn btn-secondary float-left)
+      = f.submit class: %w(btn btn-primary float-right)

@@ -1,0 +1,8 @@
+%script#artwork-card{type: 'text/x-template'}
+  .card
+    %img.card-img-top{':src': 'artwork.image', '@click': 'show'}
+    .card-block
+      %h4.card-title{'@click': 'show'}
+        {{artwork.title}}
+        %artwork-published{':state': 'artwork.published', ':artwork_id': 'artwork.id'}
+      %p.card-text=t :card_description

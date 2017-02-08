@@ -1,0 +1,18 @@
+.row
+  .col.artwork-image
+    = image_tag @artwork.image.url, class: 'rounded'
+  .col
+    %h1.clearfix
+      = @artwork.title
+      %artwork-published{':state': @artwork.published.to_s, ':artwork_id': @artwork.id}
+      = link_to 'X', artworks_path, class: 'close-link'
+    %p
+      %b Created:
+      = @artwork.year
+    %p
+      %b Artist:
+      = @artwork.artist.name
+    %p
+      %b Mediums:
+      = @artwork.medium_list unless @artwork.medium_list.empty?
+      = '-' if @artwork.medium_list.empty?

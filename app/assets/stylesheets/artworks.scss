@@ -1,0 +1,44 @@
+// Place all the styles related to the artworks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap/_variables';
+
+.card-img-top {
+  width: 100%;
+  cursor: pointer;
+}
+
+.card-block .card-title {
+  cursor: pointer;
+}
+
+.star {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  cursor: pointer;
+  background: url('/assets/unpublished.svg') no-repeat top left;
+  background-size: contain;
+  
+  &.published {
+    background: url('/assets/published.svg') no-repeat top left;
+    background-size: contain;
+  }
+}
+
+#artwork-image-preview, .artwork-image img {
+  width: 100%;
+}
+
+.artwork-image img {
+  border: 1px solid $gray-light;
+}
+
+.close-link {
+  text-decoration: none;
+  float: right;
+
+  &:hover, &:active  {
+    text-decoration: none;
+  }
+}

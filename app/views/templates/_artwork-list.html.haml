@@ -1,0 +1,8 @@
+%script#artwork-list{type: 'text/x-template'}
+  .artworks-list
+    %template{'v-if': 'artworks.length !== 0'}
+      .card-columns
+        %artwork-card{'v-for': 'artwork in artworks', ':artwork': 'artwork'}
+      %paginate{'v-if': 'total_pages > 1', ':pageCount': 'total_pages', ':clickHandler': 'load_page', ':containerClass': '"pagination"'}
+    .center{'v-else': true}
+      =t :no_artworks
