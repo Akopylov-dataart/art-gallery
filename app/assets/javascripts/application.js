@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require cropper/dist/cropper
-//= require vue/dist/vue
-//= require vue-resource/dist/vue-resource
-//= require vee-validate/dist/vee-validate
-//= require npm-dependencies
+//= require cropper
+//= require vue/vue
+//= require vue-resource
+//= require vee-validate
+//= require vuejs-paginate
 //= require select2-full
 //= require canvas-to-blob.min
 //= require_self

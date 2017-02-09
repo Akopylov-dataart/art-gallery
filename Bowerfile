@@ -1,4 +1,0 @@
-asset 'vue'
-asset 'cropper'
-asset 'vue-resource'
-asset 'vee-validate', '2.0.0-beta.22'

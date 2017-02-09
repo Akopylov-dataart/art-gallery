@@ -31,10 +31,14 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap_form'
 gem 'paperclip', '~> 5.0.0'
 gem 'select2-rails'
-gem 'bower-rails'
-gem 'npm-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 
+source 'http://insecure.rails-assets.org' do
+  gem 'rails-assets-vue'
+  gem 'rails-assets-cropper'
+  gem 'rails-assets-vue-resource'
+  gem 'rails-assets-vee-validate', '~> 2.0.0.beta.22'
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
